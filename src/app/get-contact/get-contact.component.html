@@ -1,0 +1,23 @@
+<h1>Contacts</h1>
+<a [routerLink]="['/contact/add']" class="btn btn-primary">Add Contact</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let c of contacts">
+            <td>{{c.name}}</td>
+            <td>{{c.phone_number}}</td>
+            <td><a [routerLink]="['add',c._id]" class="btn btn-primary">Edit</a></td>
+            <td><a class="btn btn-danger">Delete</a></td>
+        </tr>
+        <tr *ngIf="contacts.length==0">
+            <td>no records</td>
+        </tr>
+    </tbody>
+</table>
